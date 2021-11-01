@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %} HomePage {% endblock %} 
+     
+{% block content %} 
+
+      <div class="container my-3">
+    <h1>Welcome to text Analyzer</h1>
+   <h3>Your Analyzed Text is : {{ params['task'] }}</h3>
+
+   <p>{{ params['analyzed_text'] }}</p>
+   
+</div>
+
+
+{% endblock %}
+
+  

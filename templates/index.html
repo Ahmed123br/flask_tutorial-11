@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %} HomePage {% endblock %} 
+     
+{% block content %} 
+
+<div class="container my-3">
+  <h1>Welcome to text Analyzer</h1>
+ <br>
+ <form action="/textanalyzer">
+ <textarea name="text"  style="margin: 0px; width: 720px; height:150px;"></textarea>
+
+ <div class="form-check form-switch">
+  <input class="form-check-input" name="wordcount"  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault">Total Word Count</label>
+</div>
+
+<div class="form-check form-switch">
+  <input class="form-check-input" name="removepunc"  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault">Remove Pronaounch</label>
+</div>
+
+<div class="form-check form-switch">
+  <input class="form-check-input" name="upper"  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault">UpperCase </label>
+</div>
+
+<div class="form-check form-switch">
+  <input class="form-check-input" name="spaceremov"  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault">Remove Unwanted Space</label>
+</div>
+
+<div class="form-check form-switch">
+  <input class="form-check-input" name="newlineremov"  type="checkbox" role="switch" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault">Remove Newline</label>
+</div>
+
+ 
+
+  <button type="submit" class="btn btn-success">Analyze Text</button>
+ 
+</form>
+</div>
+
+{% endblock %}
