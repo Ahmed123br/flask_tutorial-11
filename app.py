@@ -31,33 +31,26 @@ def textAnalyze():
         params = {'task':'Remove punctuations','analyzed_text':analyzed}
         return render_template('analyze.html',params=params)
 
-    elif  uppercase == "on":
-        analyzed = ""
-        for char in text:
-            analyzed = analyzed + char.upper()
-        
+    elif uppercase == "on":
+        analyzed = "".join(char.upper() for char in text)
         params = {'task':'Uppercase','analyzed_text':analyzed}
         return render_template('analyze.html',params=params)
 
-    elif  spaceremove == "on":
-        analyzed = ""
-        i = 0
-        for char in text:
-            if not (text[i]==" " and text[i+1] ==" "):
-                    analyzed = analyzed + char
-            i = i+1
-            
+    elif spaceremove == "on":
+        analyzed = "".join(
+            char
+            for i, char in enumerate(text)
+            if text[i] != " " or text[i + 1] != " "
+        )
+
         params = {'task':'Unwanted Space Remove','analyzed_text':analyzed}
         return render_template('analyze.html',params=params)
 
-    elif  newlineremove == "on":
-            analyzed = ""
-            for char in text:
-                if char != "\n":
-                     analyzed = analyzed + char 
-            params = {'task':'Newline Remove','analyzed_text':analyzed}
-            return render_template('analyze.html',params=params)
-    
+    elif newlineremove == "on":
+        analyzed = "".join(char for char in text if char != "\n")
+        params = {'task':'Newline Remove','analyzed_text':analyzed}
+        return render_template('analyze.html',params=params)
+
     else:
         flash("Error!! Please Select one item")
         return render_template("msg.html")
